@@ -1,0 +1,70 @@
+"use client";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FaHome, FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaBars, FaTimes } from "react-icons/fa";
+
+const navLinks = [
+  { label: "Home", href: "#hero", icon: <FaHome /> },
+  { label: "Features", href: "#features", icon: <FaUser /> },
+  { label: "Skills", href: "#skills", icon: <FaCode /> },
+  { label: "Projects", href: "#projects", icon: <FaProjectDiagram /> },
+  { label: "Experience", href: "#experience", icon: <FaCode /> },
+  { label: "Contact", href: "#contact", icon: <FaEnvelope /> },
+];
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <nav className="fixed top-6 left-1/2 z-50 -translate-x-1/2 w-[90vw] max-w-4xl rounded-full bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg flex items-center justify-between px-8 py-3 transition-all">
+      <div className="flex items-center gap-8">
+        <span className="font-extrabold text-2xl text-cyan-400 tracking-widest">AKASH</span>
+        <div className="hidden md:flex gap-6">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="flex items-center gap-2 text-lg font-medium text-white/90 hover:text-cyan-400 transition-colors"
+            >
+              {link.icon}
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+      <button
+        className="md:hidden text-2xl text-cyan-300"
+        onClick={() => setOpen((o) => !o)}
+        aria-label="Menu"
+      >
+        {open ? <FaTimes /> : <FaBars />}
+      </button>
+      {/* Mobile menu */}
+      <motion.div
+        initial={false}
+        animate={open ? { x: 0 } : { x: "100%" }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        className={`fixed top-0 right-0 h-full w-64 bg-black/90 backdrop-blur-lg z-50 flex flex-col gap-8 pt-24 px-8 md:hidden`}
+      >
+        {navLinks.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            className="flex items-center gap-3 text-xl font-semibold text-white/90 hover:text-cyan-400 transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            {link.icon}
+            {link.label}
+          </a>
+        ))}
+      </motion.div>
+      {/* Overlay for mobile menu */}
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/40 z-40 md:hidden"
+          onClick={() => setOpen(false)}
+        />
+      )}
+    </nav>
+  );
+}

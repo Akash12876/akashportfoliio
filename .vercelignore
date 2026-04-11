@@ -1,0 +1,9 @@
+# Ignore local development and config files
+.env.local
+.env.development
+node_modules
+.git
+.gitignore
+.vscode
+.DS_Store
+*.log
