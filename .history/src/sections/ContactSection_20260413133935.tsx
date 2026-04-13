@@ -44,13 +44,13 @@ export default function ContactSection() {
         <div className="flex flex-col justify-center items-end min-w-0 sm:min-w-[220px] md:pl-12 mt-6 md:mt-0 w-full md:w-auto">
           <div className="mb-4 sm:mb-8 w-full md:w-auto">
             <h3 className="text-sm xs:text-base sm:text-lg font-bold text-white mb-1">CONTACT ME</h3>
-            <p className="text-white/80 mb-2 sm:mb-4 text-xs xs:text-sm sm:text-base break-all">pandeyakash85296@gmail.com</p>
+            <p className="text-white/80 mb-2 sm:mb-4 text-xs xs:text-sm sm:text-base break-all">akash@email.com</p>
             <h3 className="text-sm xs:text-base sm:text-lg font-bold text-white mb-1">FOLLOW ME</h3>
             <div className="flex gap-2 xs:gap-3 sm:gap-4">
               <a href="https://instagram.com/akashpandey_004" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-purple-400 p-2 text-purple-400 hover:bg-purple-400 hover:text-white transition-colors">
                 <FaInstagram size={20} className="xs:text-[22px] sm:text-[24px]" />
               </a>
-              <a href="https://www.linkedin.com/in/akash-pandey-5b9494315" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-purple-400 p-2 text-purple-400 hover:bg-purple-400 hover:text-white transition-colors">
+              <a href="https://linkedin.com/in/akash-pandey-5b9494315" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-purple-400 p-2 text-purple-400 hover:bg-purple-400 hover:text-white transition-colors">
                 <FaLinkedin size={20} className="xs:text-[22px] sm:text-[24px]" />
               </a>
             </div>
