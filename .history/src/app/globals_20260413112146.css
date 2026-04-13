@@ -9,15 +9,11 @@
   animation: netmove 6s linear infinite;
 }
 
-
 @keyframes netmove {
   0% {
     background-position: 0 0, 0 0;
   }
   100% {
-    background-position: 48px 48px, 48px 48px;
-  }
-}
 
 html, body {
   min-height: 100%;
@@ -37,7 +33,25 @@ body {
     linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 1px);
   background-size: 48px 48px;
 }
-/* Removed duplicate .animated-net-bg and @keyframes netmove */
+/* Animated net/grid background */
+/* Faster and more visible animated net/grid background */
+.animated-net-bg {
+  background-color: #0a0a0a;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.13) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.13) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: netmove 6s linear infinite;
+}
+
+@keyframes netmove {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 48px 48px, 48px 48px;
+  }
+}
 @import "tailwindcss";
 
 :root {
