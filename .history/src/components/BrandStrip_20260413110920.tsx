@@ -13,15 +13,18 @@ const brands = [
 export default function BrandStrip() {
   // Unique brand names
   const uniqueNames = React.useMemo(() => [...new Set(brands.map(b => b.name))], []);
-  // Shuffle once on first render (client only)
-  const [shuffled] = useState(() => {
+  const [shuffled, setShuffled] = useState(uniqueNames);
+
+  useEffect(() => {
+    // Shuffle only on client
     const arr = [...uniqueNames];
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    return arr;
-  });
+    setShuffled(arr);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="relative w-full overflow-x-hidden py-8 animated-net-bg">
