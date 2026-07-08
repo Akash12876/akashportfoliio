@@ -4,17 +4,18 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaBrain, FaComments, FaShieldAlt, FaRocket } from "react-icons/fa";
 import { AI_QUICK_PROMPTS } from "@/lib/portfolioAI";
+import PremiumButton from "@/components/PremiumButton";
 
 const features = [
   {
     icon: <FaBrain className="text-2xl text-cyan-400" />,
     title: "Smart answers",
-    text: "Instant replies about skills, DevOps, cybersecurity, and projects.",
+    text: "Instant replies about skills, AWS Amplify, cloud, and projects.",
   },
   {
-    icon: <FaShieldAlt className="text-2xl text-red-400" />,
-    title: "Security-aware",
-    text: "Highlights Kali Linux, pentesting, and OWASP-focused experience.",
+    icon: <FaShieldAlt className="text-2xl text-orange-400" />,
+    title: "Cloud-ready",
+    text: "Highlights AWS Amplify, S3, Lambda, and cloud deployment skills.",
   },
   {
     icon: <FaRocket className="text-2xl text-purple-400" />,
@@ -62,8 +63,8 @@ export default function AIShowcaseSection() {
             </span>
           </h2>
           <p className="max-w-2xl text-base text-zinc-400 sm:text-lg">
-            An interactive assistant built into this portfolio — ask about web development, DevOps,
-            cybersecurity, or how to work together. No signup required.
+            An interactive assistant built into this portfolio — ask about web development, AWS Amplify,
+            cloud, or how to work together. No signup required.
           </p>
         </motion.div>
 
@@ -96,26 +97,15 @@ export default function AIShowcaseSection() {
           <p className="mb-4 text-center text-sm text-zinc-400">Try a quick prompt</p>
           <div className="flex flex-wrap justify-center gap-2">
             {AI_QUICK_PROMPTS.map((p) => (
-              <button
-                key={p}
-                type="button"
-                onClick={openAI}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-200 transition-all hover:border-cyan-400/40 hover:bg-cyan-500/10 hover:text-cyan-200"
-              >
+              <PremiumButton key={p} type="button" variant="ghost" size="sm" onClick={openAI}>
                 {p}
-              </button>
+              </PremiumButton>
             ))}
           </div>
-          <motion.button
-            type="button"
-            onClick={openAI}
-            className="mx-auto mt-6 flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-cyan-500/20"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
+          <PremiumButton type="button" variant="primary" size="lg" className="mx-auto mt-6" onClick={openAI}>
             <FaComments />
             Start AI Chat
-          </motion.button>
+          </PremiumButton>
         </motion.div>
       </div>
     </section>

@@ -9,6 +9,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import PremiumButton from "@/components/PremiumButton";
 
 
 
@@ -158,7 +159,7 @@ const projects = [
 
       "AR Group of Education has supported aspiring MBBS doctors since 2005, providing expert guidance and exceptional service.",
 
-    tech: ["WordPress", "Plugins", "API Integration"],
+    tech: ["TypeScript", "Next.js", "Node.js", "React", "PostgreSQL", "REST API"],
 
     demo: "https://argroupofeducation.com/",
 
@@ -367,47 +368,17 @@ function ProjectCard({
           <div className="mt-2 flex flex-wrap gap-3">
 
             {"github" in project && project.github && (
-
-              <a
-
-                href={project.github}
-
-                target="_blank"
-
-                rel="noopener noreferrer"
-
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-zinc-200 transition-colors hover:border-cyan-400/40 hover:bg-cyan-500/10 hover:text-cyan-300"
-
-              >
-
+              <PremiumButton href={project.github} variant="outline" size="sm">
                 <FaGithub className="text-base" />
-
                 GitHub
-
-              </a>
-
+              </PremiumButton>
             )}
 
             {project.demo !== "#" && (
-
-              <a
-
-                href={project.demo}
-
-                target="_blank"
-
-                rel="noopener noreferrer"
-
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition-transform hover:scale-[1.02] active:scale-[0.98]"
-
-              >
-
+              <PremiumButton href={project.demo} variant="primary" size="sm">
                 <FaExternalLinkAlt className="text-xs" />
-
                 Live Demo
-
-              </a>
-
+              </PremiumButton>
             )}
 
           </div>

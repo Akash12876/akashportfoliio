@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import IparxMediaLogo from "@/components/IparxMediaLogo";
 import ContactNetBg from "@/components/ContactNetBg";
+import PremiumButton from "@/components/PremiumButton";
 const ContactModal = dynamic(() => import("@/components/ContactModal"), { ssr: false });
 
 export default function ContactSection() {
@@ -29,16 +30,9 @@ export default function ContactSection() {
           <p className="text-sm xs:text-base sm:text-lg md:text-xl text-white/80 mb-2">
             Explore, <span className="text-purple-400 font-semibold">Collaborate</span>, <span className="text-purple-400 font-semibold">Innovate</span>, and Achieve
           </p>
-          <motion.button
-            type="button"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-block px-4 py-2 xs:px-6 xs:py-3 sm:px-10 sm:py-4 rounded-full bg-purple-400 hover:bg-purple-500 text-white text-sm xs:text-base sm:text-lg font-bold shadow-lg transition-all duration-300"
-            style={{ boxShadow: "0 2px 16px 0 rgba(128,90,213,0.25)" }}
-            onClick={() => setModalOpen(true)}
-          >
+          <PremiumButton type="button" variant="accent" size="lg" onClick={() => setModalOpen(true)}>
             Let&apos;s Collaborate
-          </motion.button>
+          </PremiumButton>
         </div>
         {/* Right: Contact info and social */}
         <div className="flex flex-col justify-center items-end min-w-0 sm:min-w-[220px] md:pl-12 mt-6 md:mt-0 w-full md:w-auto">

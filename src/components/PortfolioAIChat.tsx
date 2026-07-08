@@ -5,11 +5,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FaPaperPlane, FaRobot, FaTimes } from "react-icons/fa";
 import { AI_QUICK_PROMPTS, getPortfolioAIReply, type ChatMessage } from "@/lib/portfolioAI";
 import { notifyAIChat } from "@/lib/web3formsClient";
+import PremiumButton from "@/components/PremiumButton";
 
 const WELCOME: ChatMessage = {
   role: "assistant",
   content:
-    "Hi — I'm Akash's AI assistant. Ask about skills, cybersecurity (Kali Linux), projects, or how to collaborate.",
+    "Hi — I'm Akash's AI assistant. Ask about skills, AWS Amplify, cloud, projects, or how to collaborate.",
 };
 
 export default function PortfolioAIChat() {
@@ -122,14 +123,16 @@ export default function PortfolioAIChat() {
             <div className="border-t border-white/10 px-3 py-2">
               <div className="mb-2 flex flex-wrap gap-1.5">
                 {AI_QUICK_PROMPTS.map((p) => (
-                  <button
+                  <PremiumButton
                     key={p}
                     type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="!px-2.5 !py-1 text-[10px] sm:text-xs"
                     onClick={() => send(p)}
-                    className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-2.5 py-1 text-[10px] font-medium text-cyan-200 transition-colors hover:bg-cyan-500/20 sm:text-xs"
                   >
                     {p}
-                  </button>
+                  </PremiumButton>
                 ))}
               </div>
               <form
@@ -142,39 +145,43 @@ export default function PortfolioAIChat() {
                 <input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask about skills, projects, security…"
+                  placeholder="Ask about skills, projects, AWS cloud…"
                   className="flex-1 rounded-xl border border-white/10 bg-black/50 px-3 py-2.5 text-sm text-white outline-none placeholder:text-zinc-500 focus:border-cyan-500/50"
                 />
-                <button
+                <PremiumButton
                   type="submit"
+                  variant="primary"
+                  size="sm"
+                  className="!h-10 !w-10 shrink-0 !p-0"
                   disabled={!input.trim() || typing}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white disabled:opacity-40"
                   aria-label="Send message"
                 >
                   <FaPaperPlane className="text-sm" />
-                </button>
+                </PremiumButton>
               </form>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <motion.button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="fixed bottom-6 right-4 z-[70] flex items-center gap-2 rounded-full border border-cyan-400/40 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 sm:right-6 sm:px-5"
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.97 }}
-        aria-label={open ? "Close AI assistant" : "Open AI assistant"}
-      >
-        <motion.span
-          className="absolute inset-0 rounded-full bg-cyan-400/30"
-          animate={{ scale: [1, 1.35, 1], opacity: [0.45, 0, 0.45] }}
-          transition={{ duration: 2.2, repeat: Infinity }}
-        />
-        <FaRobot className="relative z-10 text-lg" />
-        <span className="relative z-10 hidden sm:inline">{open ? "Close AI" : "Ask AI"}</span>
-      </motion.button>
+      <motion.div className="fixed bottom-6 right-4 z-[70] sm:right-6">
+        <PremiumButton
+          type="button"
+          variant="primary"
+          size="md"
+          className="shadow-lg shadow-cyan-500/25"
+          onClick={() => setOpen((o) => !o)}
+          aria-label={open ? "Close AI assistant" : "Open AI assistant"}
+        >
+          <motion.span
+            className="absolute inset-0 rounded-full bg-cyan-400/30"
+            animate={{ scale: [1, 1.35, 1], opacity: [0.45, 0, 0.45] }}
+            transition={{ duration: 2.2, repeat: Infinity }}
+          />
+          <FaRobot className="relative z-10 text-lg" />
+          <span className="relative z-10 hidden sm:inline">{open ? "Close AI" : "Ask AI"}</span>
+        </PremiumButton>
+      </motion.div>
     </>
   );
 }

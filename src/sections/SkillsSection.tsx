@@ -2,6 +2,8 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import PremiumButton from "@/components/PremiumButton";
+import SkillsAmbientBg from "@/components/SkillsAmbientBg";
 import {
   FaReact,
   FaNodeJs,
@@ -10,35 +12,24 @@ import {
   FaCss3Alt,
   FaJs,
   FaDatabase,
-  FaLinux,
   FaShopify,
   FaWordpress,
-  FaShieldAlt,
-  FaUserSecret,
-  FaNetworkWired,
-  FaBug,
-  FaLock,
-  FaSearch,
 } from "react-icons/fa";
 import {
   SiTypescript,
   SiTailwindcss,
   SiNextdotjs,
-  SiDocker,
-  SiMongodb,
-  SiKubernetes,
   SiGithubactions,
   SiNginx,
   SiFlutter,
   SiAngular,
-  SiKalilinux,
 } from "react-icons/si";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const typingPhrases = [
-  "Web, App, DevOps & Cybersecurity",
-  "Kali Linux · Pentesting · React · Next.js",
+  "Web, App, AWS Amplify & Cloud",
+  "Next.js · TypeScript · AWS · React",
   "AI-powered portfolio — ask the assistant",
 ];
 
@@ -116,7 +107,7 @@ const skillCategories: SkillCategory[] = [
       { name: "HTML5", icon: <FaHtml5 className="text-orange-400" />, level: "Expert" },
       { name: "CSS3", icon: <FaCss3Alt className="text-blue-300" />, level: "Expert" },
       { name: "JavaScript", icon: <FaJs className="text-yellow-300" />, level: "Expert" },
-      { name: "MongoDB", icon: <SiMongodb className="text-green-500" />, level: "Advanced" },
+      { name: "PostgreSQL", icon: <FaDatabase className="text-blue-400" />, level: "Advanced" },
       { name: "Express.js", icon: <SiNginx className="text-gray-200" />, level: "Advanced" },
       { name: "Node.js", icon: <FaNodeJs className="text-green-400" />, level: "Intermediate" },
       { name: "Database", icon: <FaDatabase className="text-blue-200" />, level: "Advanced" },
@@ -136,28 +127,29 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "DevOps",
-    color: "from-yellow-400 via-green-400 to-blue-400",
+    title: "AWS Amplify",
+    color: "from-orange-400 via-amber-500 to-yellow-400",
     skills: [
-      { name: "AWS", icon: <FaAws className="text-yellow-400" />, level: "Advanced" },
-      { name: "Docker", icon: <SiDocker className="text-blue-400" />, level: "Advanced" },
-      { name: "Kubernetes", icon: <SiKubernetes className="text-blue-300" />, level: "Intermediate" },
-      { name: "GitHub Actions", icon: <SiGithubactions className="text-gray-200" />, level: "Advanced" },
-      { name: "Linux", icon: <FaLinux className="text-gray-300" />, level: "Expert" },
+      { name: "AWS Amplify", icon: <FaAws className="text-orange-400" />, level: "Advanced" },
+      { name: "Next.js Hosting", icon: <SiNextdotjs className="text-zinc-200" />, level: "Advanced" },
+      { name: "CI/CD Pipeline", icon: <SiGithubactions className="text-gray-200" />, level: "Advanced" },
+      { name: "GraphQL API", icon: <FaDatabase className="text-blue-200" />, level: "Intermediate" },
+      { name: "Cognito Auth", icon: <FaAws className="text-yellow-400" />, level: "Intermediate" },
+      { name: "Serverless Functions", icon: <FaNodeJs className="text-green-400" />, level: "Advanced" },
     ],
   },
   {
-    title: "Cybersecurity",
-    color: "from-red-500 via-orange-500 to-amber-400",
+    title: "Cloud",
+    color: "from-sky-400 via-blue-500 to-indigo-500",
     skills: [
-      { name: "Kali Linux", icon: <SiKalilinux className="text-blue-400" />, level: "Advanced" },
-      { name: "Penetration Testing", icon: <FaUserSecret className="text-red-400" />, level: "Intermediate" },
-      { name: "Network Security", icon: <FaNetworkWired className="text-green-400" />, level: "Advanced" },
-      { name: "OWASP Top 10", icon: <FaShieldAlt className="text-orange-400" />, level: "Intermediate" },
-      { name: "Burp Suite", icon: <FaBug className="text-amber-300" />, level: "Intermediate" },
-      { name: "Nmap / Wireshark", icon: <FaSearch className="text-cyan-300" />, level: "Advanced" },
-      { name: "Metasploit", icon: <FaLinux className="text-red-300" />, level: "Intermediate" },
-      { name: "Security Auditing", icon: <FaLock className="text-yellow-400" />, level: "Advanced" },
+      { name: "AWS", icon: <FaAws className="text-yellow-400" />, level: "Advanced" },
+      { name: "Amazon S3", icon: <FaAws className="text-orange-300" />, level: "Advanced" },
+      { name: "EC2", icon: <FaAws className="text-amber-400" />, level: "Intermediate" },
+      { name: "CloudFront CDN", icon: <FaAws className="text-sky-300" />, level: "Intermediate" },
+      { name: "AWS Lambda", icon: <FaNodeJs className="text-green-400" />, level: "Intermediate" },
+      { name: "Route 53 DNS", icon: <FaDatabase className="text-blue-300" />, level: "Intermediate" },
+      { name: "RDS Database", icon: <FaDatabase className="text-blue-400" />, level: "Advanced" },
+      { name: "Cloud Deployment", icon: <FaAws className="text-cyan-300" />, level: "Advanced" },
     ],
   },
 ];
@@ -237,16 +229,16 @@ function SkillCard({ cat, i }: SkillCardProps) {
               </li>
             ))}
           </ul>
-          <button
-            type="button"
-            className="group relative mt-2 overflow-hidden rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 px-7 py-3 text-lg font-semibold text-white shadow-lg transition-transform hover:scale-[1.03] active:scale-[0.98]"
+          <PremiumButton
+            variant="primary"
+            size="md"
+            className="premium-btn-no-shine mt-2"
             onClick={() => {
               document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
           >
-            <span className="relative z-10">Learn More</span>
-            <span className="absolute inset-x-0 bottom-0 z-0 h-0 rounded-b-full bg-black/60 transition-all duration-300 group-hover:h-full" />
-          </button>
+            Learn More
+          </PremiumButton>
         </motion.div>
       </motion.div>
     </motion.article>
@@ -260,8 +252,9 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative flex w-full scroll-mt-28 flex-col items-center bg-gradient-to-br from-[#050509] via-[#0a0a0a] to-[#050509] px-4 py-24 text-white sm:px-8 sm:py-28"
+      className="relative flex w-full scroll-mt-28 flex-col items-center overflow-hidden bg-[#050509] px-4 py-24 text-white sm:px-8 sm:py-28"
     >
+      <SkillsAmbientBg />
       <motion.header
         ref={headerRef}
         initial={{ opacity: 0, y: 20 }}
@@ -281,7 +274,7 @@ export default function SkillsSection() {
       </motion.header>
 
       <motion.div
-        className="relative flex w-full max-w-3xl flex-col items-center gap-12 sm:gap-14"
+        className="relative z-10 flex w-full max-w-3xl flex-col items-center gap-12 sm:gap-14"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.05, margin: "0px 0px -60px 0px" }}

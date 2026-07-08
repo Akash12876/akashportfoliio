@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import PremiumButton from "@/components/PremiumButton";
 import { submitWeb3Form } from "@/lib/web3formsClient";
 
 export default function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -161,13 +162,15 @@ export default function ContactModal({ open, onClose }: { open: boolean; onClose
                     I confirm all details are correct <span className="text-purple-400">&#10003;</span>
                   </span>
                 </label>
-                <button
+                <PremiumButton
                   type="submit"
-                  className="mt-2 rounded-full bg-purple-400 py-3 font-bold text-white transition-all hover:bg-purple-500 disabled:opacity-60"
+                  variant="accent"
+                  size="md"
+                  className="mt-2 w-full"
                   disabled={!isValid || sending}
                 >
                   {sending ? "Sending…" : "Send Message"}
-                </button>
+                </PremiumButton>
               </form>
             </motion.div>
           </motion.div>

@@ -50,7 +50,226 @@ body {
     linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 1px);
   background-size: 48px 48px;
 }
-/* Removed duplicate .animated-net-bg and @keyframes netmove */
+
+/* Premium buttons — site-wide */
+@keyframes premium-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes premium-shine {
+  0% {
+    transform: translateX(-130%) skewX(-8deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.12;
+  }
+  100% {
+    transform: translateX(130%) skewX(-8deg);
+    opacity: 0;
+  }
+}
+
+.premium-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 9999px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+  isolation: isolate;
+}
+
+.premium-btn:focus-visible {
+  outline: 2px solid rgba(34, 211, 238, 0.8);
+  outline-offset: 3px;
+}
+
+.premium-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.premium-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.premium-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.premium-btn-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.premium-btn-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 42%,
+    rgba(34, 211, 238, 0.18) 50%,
+    transparent 58%
+  );
+  transform: translateX(-130%) skewX(-8deg);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+}
+
+.premium-btn:hover:not(:disabled) .premium-btn-shine {
+  animation: premium-shine 0.9s ease forwards;
+}
+
+.premium-btn-no-shine .premium-btn-shine {
+  display: none;
+}
+
+.premium-btn-primary {
+  color: #fff;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 45%, #8b5cf6 100%);
+  background-size: 200% 200%;
+  box-shadow:
+    0 4px 24px rgba(6, 182, 212, 0.35),
+    inset 0 1px 0 rgba(34, 211, 238, 0.12);
+}
+
+.premium-btn-primary:hover:not(:disabled) {
+  animation: premium-gradient 4s ease infinite;
+  box-shadow:
+    0 8px 32px rgba(6, 182, 212, 0.45),
+    0 0 0 1px rgba(34, 211, 238, 0.25),
+    inset 0 1px 0 rgba(34, 211, 238, 0.15);
+}
+
+.premium-btn-primary .premium-btn-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.25), transparent 70%);
+}
+
+.premium-btn-primary:hover:not(:disabled) .premium-btn-glow {
+  opacity: 1;
+}
+
+.premium-btn-outline {
+  color: #e4e4e7;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.premium-btn-outline:hover:not(:disabled) {
+  color: #fff;
+  border-color: rgba(34, 211, 238, 0.45);
+  background: rgba(34, 211, 238, 0.08);
+  box-shadow:
+    0 8px 28px rgba(34, 211, 238, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.premium-btn-ghost {
+  color: #a5f3fc;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  background: rgba(6, 182, 212, 0.06);
+}
+
+.premium-btn-ghost:hover:not(:disabled) {
+  color: #ecfeff;
+  border-color: rgba(34, 211, 238, 0.4);
+  background: rgba(6, 182, 212, 0.14);
+  box-shadow: 0 4px 16px rgba(6, 182, 212, 0.12);
+}
+
+.premium-btn-accent {
+  color: #fff;
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 50%, #6366f1 100%);
+  background-size: 200% 200%;
+  box-shadow:
+    0 4px 24px rgba(168, 85, 247, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.premium-btn-accent:hover:not(:disabled) {
+  animation: premium-gradient 4s ease infinite;
+  box-shadow:
+    0 8px 32px rgba(168, 85, 247, 0.45),
+    inset 0 1px 0 rgba(167, 139, 250, 0.25);
+}
+
+/* Skills section ambient background */
+@keyframes skills-orb-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(24px, -18px) scale(1.06);
+  }
+  66% {
+    transform: translate(-16px, 12px) scale(0.96);
+  }
+}
+
+.skills-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.45;
+  animation: skills-orb-float 14s ease-in-out infinite;
+}
+
+.skills-orb-cyan {
+  top: 8%;
+  left: -8%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.35) 0%, transparent 70%);
+}
+
+.skills-orb-purple {
+  top: 42%;
+  right: -6%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.28) 0%, transparent 70%);
+  animation-delay: -5s;
+}
+
+.skills-orb-blue {
+  bottom: 6%;
+  left: 28%;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, transparent 70%);
+  animation-delay: -9s;
+}
+
+.skills-grid-fade {
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, #050509 100%);
+}
 @import "tailwindcss";
 
 :root {

@@ -3,20 +3,20 @@ export type ChatMessage = { role: "user" | "assistant"; content: string };
 export const AI_QUICK_PROMPTS = [
   "What are your top skills?",
   "Tell me about your projects",
-  "Do you know cybersecurity?",
+  "Do you know AWS cloud?",
   "How can I hire you?",
 ] as const;
 
 const profile = {
   name: "Akash Pandey",
-  role: "Full Stack Developer · DevOps · Cybersecurity",
+  role: "Full Stack Developer · AWS Amplify · Cloud",
   email: "pandeyakash85296@gmail.com",
   education: "BCA (2025)",
   highlights: [
     "Web: React, Next.js, TypeScript, Tailwind",
     "Mobile: Flutter, React Native",
-    "DevOps: AWS, Docker, Kubernetes, GitHub Actions",
-    "Cybersecurity: Kali Linux, penetration testing, network security",
+    "AWS Amplify: hosting, CI/CD, serverless APIs",
+    "Cloud: AWS S3, EC2, Lambda, CloudFront, RDS",
   ],
   projects: [
     "Modern Portfolio (Next.js + Framer Motion)",
@@ -39,19 +39,19 @@ export function getPortfolioAIReply(input: string): string {
   }
 
   if (includesAny(q, ["skill", "stack", "tech", "expert", "know"])) {
-    return `Akash specializes in:\n\n• ${profile.highlights.join("\n• ")}\n\nScroll to **My Skills** for detailed levels, including a dedicated **Cybersecurity** card with Kali Linux and related tools.`;
+    return `Akash specializes in:\n\n• ${profile.highlights.join("\n• ")}\n\nScroll to **My Skills** for **AWS Amplify** and **Cloud** sections.`;
   }
 
   if (includesAny(q, ["cyber", "security", "kali", "pentest", "hack", "owasp", "burp", "nmap"])) {
-    return "Yes — Akash has hands-on cybersecurity experience including **Kali Linux**, penetration testing, network security, OWASP awareness, Burp Suite, Nmap/Wireshark, and security auditing. Check the **Cybersecurity** section under My Skills.";
+    return "Akash focuses on full-stack development and AWS cloud. See **AWS Amplify** and **Cloud** under My Skills — S3, Lambda, EC2, and deployment.";
   }
 
   if (includesAny(q, ["project", "portfolio", "work", "built", "demo"])) {
     return `Featured projects:\n\n• ${profile.projects.join("\n• ")}\n\nOpen the **Projects** section below Skills for live demos and GitHub links.`;
   }
 
-  if (includesAny(q, ["devops", "aws", "docker", "kubernetes", "deploy", "ci"])) {
-    return "DevOps is a core strength: AWS, Docker, Kubernetes, GitHub Actions, Linux, and Nginx. Akash builds pipelines and deploys production-ready apps on modern cloud stacks.";
+  if (includesAny(q, ["amplify", "cloud", "aws", "s3", "lambda", "ec2", "serverless", "devops", "docker", "kubernetes", "deploy", "ci"])) {
+    return "Cloud is a core strength: **AWS Amplify**, S3, EC2, Lambda, CloudFront, RDS, and CI/CD. Check **AWS Amplify** and **Cloud** under My Skills.";
   }
 
   if (includesAny(q, ["react", "next", "web", "frontend", "tailwind"])) {
@@ -67,12 +67,12 @@ export function getPortfolioAIReply(input: string): string {
   }
 
   if (includesAny(q, ["ai", "assistant", "bot", "chat"])) {
-    return "You're already using it! This portfolio includes an AI assistant trained on Akash's profile — ask about skills, cybersecurity, projects, or hiring anytime.";
+    return "You're already using it! This portfolio includes an AI assistant trained on Akash's profile — ask about skills, AWS cloud, projects, or hiring anytime.";
   }
 
   if (includesAny(q, ["who", "about", "akash", "you", "introduce"])) {
-    return `${profile.name} is a ${profile.role} (${profile.education}). He delivers real-world web, app, and DevOps solutions with clean code, strong UX, and security-aware practices.`;
+    return `${profile.name} is a ${profile.role} (${profile.education}). He delivers real-world web, app, and cloud solutions with clean code and strong UX.`;
   }
 
-  return `Great question! Akash is a ${profile.role}. Try asking about **skills**, **cybersecurity**, **projects**, or **how to hire**. Or tap a quick prompt below.`;
+  return `Great question! Akash is a ${profile.role}. Try asking about **skills**, **AWS cloud**, **projects**, or **how to hire**. Or tap a quick prompt below.`;
 }
