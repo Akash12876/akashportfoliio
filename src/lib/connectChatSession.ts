@@ -60,6 +60,9 @@ async function ensureChatJsLoaded(): Promise<ConnectGlobal> {
   if (g.connect?.ChatSession) return g.connect;
 
   if (!chatJsLoadPromise) {
+    // Package ships ambient `declare namespace connect` typings (not an ES module),
+    // so TS rejects the import — runtime still loads ChatJS and sets globalThis.connect.
+    // @ts-expect-error amazon-connect-chatjs typings are not a module
     chatJsLoadPromise = import("amazon-connect-chatjs").then(() => undefined);
   }
   await chatJsLoadPromise;
