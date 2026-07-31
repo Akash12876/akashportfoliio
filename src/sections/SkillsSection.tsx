@@ -14,6 +14,11 @@ import {
   FaDatabase,
   FaShopify,
   FaWordpress,
+  FaPhoneAlt,
+  FaHeadset,
+  FaComments,
+  FaRobot,
+  FaChartLine,
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -21,15 +26,13 @@ import {
   SiNextdotjs,
   SiGithubactions,
   SiNginx,
-  SiFlutter,
-  SiAngular,
 } from "react-icons/si";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const typingPhrases = [
-  "Web, App, AWS Amplify & Cloud",
-  "Next.js · TypeScript · AWS · React",
+  "Web · Amazon Connect · AWS Cloud",
+  "Next.js · TypeScript · Contact Center · AWS",
   "AI-powered portfolio — ask the assistant",
 ];
 
@@ -116,40 +119,37 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "App Development",
-    color: "from-pink-500 to-purple-500",
-    skills: [
-      { name: "Node.js", icon: <FaNodeJs className="text-green-400" />, level: "Intermediate" },
-      { name: "Flutter (Dart)", icon: <SiFlutter className="text-blue-400" />, level: "Expert" },
-      { name: "API Integration", icon: <FaAws className="text-yellow-400" />, level: "Advanced" },
-      { name: "Angular", icon: <SiAngular className="text-red-500" />, level: "Intermediate" },
-      { name: "React Native", icon: <FaReact className="text-cyan-400" />, level: "Intermediate" },
-    ],
-  },
-  {
-    title: "AWS Amplify",
+    title: "Amazon Connect",
     color: "from-orange-400 via-amber-500 to-yellow-400",
     skills: [
-      { name: "AWS Amplify", icon: <FaAws className="text-orange-400" />, level: "Advanced" },
-      { name: "Next.js Hosting", icon: <SiNextdotjs className="text-zinc-200" />, level: "Advanced" },
-      { name: "CI/CD Pipeline", icon: <SiGithubactions className="text-gray-200" />, level: "Advanced" },
-      { name: "GraphQL API", icon: <FaDatabase className="text-blue-200" />, level: "Intermediate" },
-      { name: "Cognito Auth", icon: <FaAws className="text-yellow-400" />, level: "Intermediate" },
-      { name: "Serverless Functions", icon: <FaNodeJs className="text-green-400" />, level: "Advanced" },
+      { name: "Amazon Connect", icon: <FaPhoneAlt className="text-orange-400" />, level: "Advanced" },
+      { name: "Contact Flows", icon: <FaHeadset className="text-amber-300" />, level: "Advanced" },
+      { name: "IVR / Routing", icon: <FaComments className="text-yellow-300" />, level: "Advanced" },
+      { name: "Agent Workspace", icon: <FaHeadset className="text-orange-300" />, level: "Intermediate" },
+      { name: "Contact Lens", icon: <FaChartLine className="text-cyan-300" />, level: "Intermediate" },
+      { name: "Lex / Chatbots", icon: <FaRobot className="text-sky-300" />, level: "Intermediate" },
+      { name: "CCP Integration", icon: <FaPhoneAlt className="text-amber-400" />, level: "Advanced" },
+      { name: "Call Analytics", icon: <FaChartLine className="text-green-300" />, level: "Intermediate" },
     ],
   },
   {
-    title: "Cloud",
+    title: "AWS",
     color: "from-sky-400 via-blue-500 to-indigo-500",
     skills: [
-      { name: "AWS", icon: <FaAws className="text-yellow-400" />, level: "Advanced" },
+      { name: "AWS Cloud", icon: <FaAws className="text-yellow-400" />, level: "Advanced" },
+      { name: "AWS Amplify", icon: <FaAws className="text-orange-400" />, level: "Advanced" },
       { name: "Amazon S3", icon: <FaAws className="text-orange-300" />, level: "Advanced" },
       { name: "EC2", icon: <FaAws className="text-amber-400" />, level: "Intermediate" },
+      { name: "AWS Lambda", icon: <FaNodeJs className="text-green-400" />, level: "Advanced" },
       { name: "CloudFront CDN", icon: <FaAws className="text-sky-300" />, level: "Intermediate" },
-      { name: "AWS Lambda", icon: <FaNodeJs className="text-green-400" />, level: "Intermediate" },
-      { name: "Route 53 DNS", icon: <FaDatabase className="text-blue-300" />, level: "Intermediate" },
-      { name: "RDS Database", icon: <FaDatabase className="text-blue-400" />, level: "Advanced" },
-      { name: "Cloud Deployment", icon: <FaAws className="text-cyan-300" />, level: "Advanced" },
+      { name: "Amazon RDS", icon: <FaDatabase className="text-blue-400" />, level: "Advanced" },
+      { name: "Cognito Auth", icon: <FaAws className="text-yellow-300" />, level: "Intermediate" },
+      { name: "API Gateway", icon: <FaAws className="text-cyan-300" />, level: "Advanced" },
+      { name: "DynamoDB", icon: <FaDatabase className="text-blue-300" />, level: "Intermediate" },
+      { name: "Route 53 DNS", icon: <FaDatabase className="text-sky-200" />, level: "Intermediate" },
+      { name: "IAM / Security", icon: <FaAws className="text-red-300" />, level: "Advanced" },
+      { name: "CI/CD Pipeline", icon: <SiGithubactions className="text-gray-200" />, level: "Advanced" },
+      { name: "CloudWatch", icon: <FaChartLine className="text-purple-300" />, level: "Intermediate" },
     ],
   },
 ];

@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import PortfolioAIChat from "@/components/PortfolioAIChat";
+import ConnectSupportChat from "@/components/ConnectSupportChat";
 import useShowLoader from "@/hooks/useShowLoader";
 import "./globals.css";
 
@@ -33,7 +34,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {!showLoader && children}
         </main>
         <Footer />
-        {!showLoader && <PortfolioAIChat />}
+        {!showLoader && (
+          <>
+            <ConnectSupportChat />
+            <PortfolioAIChat />
+          </>
+        )}
       </body>
     </html>
   );

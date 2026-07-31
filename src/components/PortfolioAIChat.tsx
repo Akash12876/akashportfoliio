@@ -10,7 +10,7 @@ import PremiumButton from "@/components/PremiumButton";
 const WELCOME: ChatMessage = {
   role: "assistant",
   content:
-    "Hi — I'm Akash's AI assistant. Ask about skills, AWS Amplify, cloud, projects, or how to collaborate.",
+    "Hi — I'm Akash's AI assistant. Ask about skills, Amazon Connect, AWS, projects, or how to collaborate.",
 };
 
 export default function PortfolioAIChat() {

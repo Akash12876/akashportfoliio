@@ -58,10 +58,10 @@ export default function HeroSection() {
           <p className="mt-3 max-w-xl text-center text-base font-medium leading-relaxed text-cyan-300/95 sm:text-lg md:text-left">
             <span className="inline-flex items-center gap-2">
               <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
-              Currently working as a Full Stack Developer
+              Software Engineer · Amazon Connect Developer
             </span>
             <span className="mt-1 block text-zinc-400">
-              Building modern web, app &amp; AWS cloud solutions for real clients
+              Full Stack &amp; Amazon Connect | Building web &amp; AWS cloud solutions
             </span>
           </p>
           <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-4 md:justify-start">

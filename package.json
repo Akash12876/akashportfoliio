@@ -9,7 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@aws-sdk/client-connect": "^3.1100.0",
     "@gsap/react": "^2.1.2",
+    "amazon-connect-chatjs": "^5.1.1",
     "framer-motion": "^12.38.0",
     "gsap": "^3.14.2",
     "next": "16.2.2",

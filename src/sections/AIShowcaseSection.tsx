@@ -10,12 +10,12 @@ const features = [
   {
     icon: <FaBrain className="text-2xl text-cyan-400" />,
     title: "Smart answers",
-    text: "Instant replies about skills, AWS Amplify, cloud, and projects.",
+    text: "Instant replies about skills, Amazon Connect, AWS, and projects.",
   },
   {
     icon: <FaShieldAlt className="text-2xl text-orange-400" />,
     title: "Cloud-ready",
-    text: "Highlights AWS Amplify, S3, Lambda, and cloud deployment skills.",
+    text: "Highlights Amazon Connect, AWS Amplify, S3, Lambda, and more.",
   },
   {
     icon: <FaRocket className="text-2xl text-purple-400" />,
@@ -63,8 +63,8 @@ export default function AIShowcaseSection() {
             </span>
           </h2>
           <p className="max-w-2xl text-base text-zinc-400 sm:text-lg">
-            An interactive assistant built into this portfolio — ask about web development, AWS Amplify,
-            cloud, or how to work together. No signup required.
+            An interactive assistant built into this portfolio — ask about web development, Amazon Connect,
+            AWS, or how to work together. No signup required.
           </p>
         </motion.div>
 

@@ -6,15 +6,15 @@ import Image from "next/image";
 const features = [
   {
     title: "Website Development",
-    desc: "Monitor your finances live with clear, intuitive dashboards.",
-    img: "/OIP.webp", // Place your image in public/features/
+    desc: "Modern, fast websites with React, Next.js, and clean UI — built for performance and growth.",
+    img: "/OIP.webp",
     alt: "Website Development",
   },
   {
-    title: "App Development",
-    desc: "Monitor your finances live with clear, intuitive dashboards.",
-    img: "/app (2).png", // Place your image in public/features/
-    alt: "App Development",
+    title: "Amazon Connect",
+    desc: "Cloud contact centers with Amazon Connect — IVR, routing, CCP, Contact Lens, and AWS integrations.",
+    img: "/amazon-connect.png",
+    alt: "Amazon Connect",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function FeaturesSection() {
             {/* Glassy border overlay only on border */}
             <div className="pointer-events-none absolute inset-0 rounded-2xl z-20" style={{boxShadow:'0 0 0 4px rgba(255,255,255,0.18)', border:'2px solid rgba(255,255,255,0.25)', backdropFilter:'blur(8px)', WebkitBackdropFilter:'blur(8px)', mixBlendMode:'lighten'}} />
             <div className="relative z-30 w-full flex justify-center mb-6">
-              <div className="w-[360px] h-[220px] flex items-center justify-center">
+              <div className="w-[360px] h-[220px] flex items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-zinc-950">
                 <Image
                   src={f.img}
                   alt={f.alt}
@@ -65,8 +65,6 @@ export default function FeaturesSection() {
                   height={220}
                   className="rounded-xl object-cover shadow w-full h-full"
                   loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="/features/placeholder.png" // Optional: add a small placeholder image
                 />
               </div>
             </div>
