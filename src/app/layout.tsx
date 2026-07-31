@@ -3,13 +3,17 @@
 import { Geist, Geist_Mono } from "next/font/google";
 
 
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import PortfolioAIChat from "@/components/PortfolioAIChat";
-import ConnectSupportChat from "@/components/ConnectSupportChat";
 import useShowLoader from "@/hooks/useShowLoader";
 import "./globals.css";
+
+const ConnectSupportChat = dynamic(() => import("@/components/ConnectSupportChat"), {
+  ssr: false,
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

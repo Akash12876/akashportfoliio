@@ -228,7 +228,7 @@ export default function ConnectSupportChat() {
         throw new Error(data.details || data.error || "Failed to start chat");
       }
 
-      const session = createCustomerChatSession({
+      const session = await createCustomerChatSession({
         contactId: data.contactId,
         participantId: data.participantId,
         participantToken: data.participantToken,

@@ -1,9 +1,8 @@
 /**
  * Thin wrapper around amazon-connect-chatjs for the customer chat session.
- * Keeps ChatJS imports isolated so the UI component stays readable.
+ * ChatJS is loaded only in the browser (dynamic import) — it references `self`
+ * and must never run during Next.js SSR / prerender.
  */
-
-import "amazon-connect-chatjs";
 
 export type StartChatCredentials = {
   contactId: string;
@@ -50,9 +49,23 @@ type ConnectGlobal = {
   };
 };
 
-function getConnectGlobal(): ConnectGlobal {
+let chatJsLoadPromise: Promise<void> | null = null;
+
+async function ensureChatJsLoaded(): Promise<ConnectGlobal> {
+  if (typeof window === "undefined") {
+    throw new Error("Amazon Connect Chat can only start in the browser.");
+  }
+
   const g = globalThis as typeof globalThis & { connect?: ConnectGlobal };
+  if (g.connect?.ChatSession) return g.connect;
+
+  if (!chatJsLoadPromise) {
+    chatJsLoadPromise = import("amazon-connect-chatjs").then(() => undefined);
+  }
+  await chatJsLoadPromise;
+
   if (!g.connect?.ChatSession) {
+    chatJsLoadPromise = null;
     throw new Error(
       "amazon-connect-chatjs failed to load (connect.ChatSession missing). Refresh and try again."
     );
@@ -60,9 +73,11 @@ function getConnectGlobal(): ConnectGlobal {
   return g.connect;
 }
 
-export function createCustomerChatSession(creds: StartChatCredentials): ConnectChatSession {
+export async function createCustomerChatSession(
+  creds: StartChatCredentials
+): Promise<ConnectChatSession> {
   const region = creds.region ?? "us-west-2";
-  const connect = getConnectGlobal();
+  const connect = await ensureChatJsLoaded();
 
   return connect.ChatSession.create({
     chatDetails: {
