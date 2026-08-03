@@ -30,11 +30,12 @@ export async function POST(req: Request) {
       return json({ error: "name is required" }, 400);
     }
 
-    const region = process.env.AWS_REGION ?? "us-west-2";
-    const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-    const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-    const instanceId = process.env.CONNECT_INSTANCE_ID;
-    const contactFlowId = process.env.CONNECT_CONTACT_FLOW_ID;
+    // Trim — Vercel/env pastes often include trailing newlines that break AWS JSON signing
+    const region = (process.env.AWS_REGION ?? "us-west-2").trim();
+    const accessKeyId = process.env.AWS_ACCESS_KEY_ID?.trim();
+    const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY?.trim();
+    const instanceId = process.env.CONNECT_INSTANCE_ID?.trim();
+    const contactFlowId = process.env.CONNECT_CONTACT_FLOW_ID?.trim();
 
     if (!accessKeyId || !secretAccessKey || !instanceId || !contactFlowId) {
       return json(
