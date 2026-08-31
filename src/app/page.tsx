@@ -1,5 +1,6 @@
 import {
   HeroSection,
+  AboutSection,
   SkillsSection,
   ProjectsSection,
   ContactSection,
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <AboutSection />
       <AIShowcaseSection />
       <BrandStrip />
       <BrandStripReverse />

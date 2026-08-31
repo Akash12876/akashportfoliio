@@ -38,11 +38,11 @@ export default function HeroSection() {
             style={{ transition: "transform 0.3s cubic-bezier(.4,2,.6,1)" }}
           >
             <Image
-              src="/AK.png"
-              alt="Profile"
+              src="/akash-hero.jpg"
+              alt="Akash Pandey"
               width={300}
               height={400}
-              className="h-full w-full rounded-xl bg-black object-contain transition-all duration-300"
+              className="h-full w-full rounded-xl object-cover object-[center_20%] transition-all duration-300"
               priority
             />
           </motion.div>
@@ -61,7 +61,7 @@ export default function HeroSection() {
               Software Engineer · Amazon Connect Developer
             </span>
             <span className="mt-1 block text-zinc-400">
-              Full Stack &amp; Amazon Connect | Building web &amp; AWS cloud solutions
+              Full Stack · Amazon Connect · AWS · AI Platforms
             </span>
           </p>
           <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-4 md:justify-start">

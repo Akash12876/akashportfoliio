@@ -31,9 +31,9 @@ import {
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const typingPhrases = [
-  "Web · Amazon Connect · AWS Cloud",
-  "Next.js · TypeScript · Contact Center · AWS",
-  "AI-powered portfolio — ask the assistant",
+  "EC2 · S3 · Lambda · RDS · IAM · CloudWatch",
+  "Amazon Connect · IVR · Lex · Live Chat",
+  "Next.js · TypeScript · PostgreSQL · Prisma",
 ];
 
 const fadeUp = {
@@ -133,23 +133,24 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "AWS",
+    title: "AWS Cloud",
     color: "from-sky-400 via-blue-500 to-indigo-500",
     skills: [
-      { name: "AWS Cloud", icon: <FaAws className="text-yellow-400" />, level: "Advanced" },
-      { name: "AWS Amplify", icon: <FaAws className="text-orange-400" />, level: "Advanced" },
-      { name: "Amazon S3", icon: <FaAws className="text-orange-300" />, level: "Advanced" },
-      { name: "EC2", icon: <FaAws className="text-amber-400" />, level: "Intermediate" },
+      { name: "EC2 Instances", icon: <FaAws className="text-amber-400" />, level: "Advanced" },
+      { name: "S3 Buckets", icon: <FaAws className="text-orange-300" />, level: "Advanced" },
       { name: "AWS Lambda", icon: <FaNodeJs className="text-green-400" />, level: "Advanced" },
-      { name: "CloudFront CDN", icon: <FaAws className="text-sky-300" />, level: "Intermediate" },
       { name: "Amazon RDS", icon: <FaDatabase className="text-blue-400" />, level: "Advanced" },
-      { name: "Cognito Auth", icon: <FaAws className="text-yellow-300" />, level: "Intermediate" },
+      { name: "IAM & Security", icon: <FaAws className="text-red-300" />, level: "Advanced" },
+      { name: "EventBridge", icon: <FaAws className="text-yellow-300" />, level: "Intermediate" },
+      { name: "CloudWatch", icon: <FaChartLine className="text-purple-300" />, level: "Advanced" },
+      { name: "AWS Amplify", icon: <FaAws className="text-orange-400" />, level: "Advanced" },
       { name: "API Gateway", icon: <FaAws className="text-cyan-300" />, level: "Advanced" },
-      { name: "DynamoDB", icon: <FaDatabase className="text-blue-300" />, level: "Intermediate" },
+      { name: "CloudFront CDN", icon: <FaAws className="text-sky-300" />, level: "Intermediate" },
+      { name: "Cognito Auth", icon: <FaAws className="text-yellow-300" />, level: "Intermediate" },
       { name: "Route 53 DNS", icon: <FaDatabase className="text-sky-200" />, level: "Intermediate" },
-      { name: "IAM / Security", icon: <FaAws className="text-red-300" />, level: "Advanced" },
+      { name: "DynamoDB", icon: <FaDatabase className="text-blue-300" />, level: "Intermediate" },
+      { name: "VPC & Networking", icon: <FaAws className="text-indigo-300" />, level: "Intermediate" },
       { name: "CI/CD Pipeline", icon: <SiGithubactions className="text-gray-200" />, level: "Advanced" },
-      { name: "CloudWatch", icon: <FaChartLine className="text-purple-300" />, level: "Intermediate" },
     ],
   },
 ];

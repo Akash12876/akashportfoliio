@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 const socialLinks = [
   {
-    href: "https://github.com/Akash12876/",
+    href: "https://github.com/akashconnect-sudo/",
     icon: <FaGithub size={24} />,
     label: "GitHub",
   },

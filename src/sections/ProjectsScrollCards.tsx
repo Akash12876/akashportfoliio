@@ -77,8 +77,7 @@ function ProjectImageWithFallback({
 
         onError={() => {
 
-          if (imgSrc !== "/AK.png") setImgSrc("/AK.png");
-
+          if (imgSrc !== "/akash-hero.jpg") setImgSrc("/akash-hero.jpg");
           else setFailed(true);
 
         }}
@@ -97,9 +96,27 @@ const projects = [
 
   {
 
+    title: "Nexiora AI — Evidence-First AI Research Platform",
+
+    image: "/nexiora-ai.png",
+
+    description:
+
+      "Full-stack AI research platform that generates citation-backed answers from trusted live sources. Retrieves from Wikipedia, OpenAlex, Hacker News, and BBC RSS, then normalizes, trust-scores, and ranks results before streaming grounded responses with verifiable citations.",
+
+    tech: ["Next.js 15", "React 19", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Redis", "Turborepo", "Razorpay"],
+
+    github: "https://github.com/akashconnect-sudo/Nexiora-AI",
+
+    demo: "https://nexiora-ai-api.vercel.app/",
+
+  },
+
+  {
+
     title: "Modern Portfolio Website",
 
-    image: "/AK.png",
+    image: "/akash-hero.jpg",
 
     description:
 
@@ -107,9 +124,9 @@ const projects = [
 
     tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "AI Assistant"],
 
-    github: "https://github.com/akashpandey-dev/portfolio",
+    github: "https://github.com/akashconnect-sudo/akashportfoliio",
 
-    demo: "https://akashpandey.dev/",
+    demo: "https://akashportfoliio-coral.vercel.app/",
 
   },
 
@@ -429,7 +446,7 @@ export default function ProjectsScrollCards() {
 
         <p className="text-base text-zinc-400 md:text-lg">
 
-          Selected work across web, mobile, and e-commerce — built for performance and polish.
+          Selected work across AI platforms, web, contact centers, and e-commerce — built for performance and polish.
 
         </p>
 
